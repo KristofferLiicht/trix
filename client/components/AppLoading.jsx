@@ -1,5 +1,5 @@
 AppLoading = React.createClass({
   render() {
-    return <h1>Please wait while loading</h1>
+    return <div>Please whit while loading</div>
   }
 });

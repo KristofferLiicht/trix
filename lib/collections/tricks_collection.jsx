@@ -6,21 +6,11 @@ Tricks = new Mongo.Collection('tricks');
 
 _.extend(Tricks, {
 	  trickType: {
-	  	FREESTYLE : "freestyle football",
-	  	STREET : "street football"
+	  	type: String,
 	  },
 
 	  trickSubType: {
-		GROUNDMOVES : "groundmoves",
-  	 	LOWERS 		: "lowers",
-  		SITDOWNS    : "sitdowns",
-  		UPPERS      : "uppers",
-  		TRANSITIONS : "transitions",
-		AKKAS       : "akkas",
-  		PANNAS      : "pannas",
-  		BEATS	    : "beats",
-  		OTHER 		: "other"
-
+	  	type: String,
 	  }
 });
 
@@ -56,10 +46,10 @@ Tricks.attachSchema(TrickSchema);
  */
 _.extend(Tricks, {
   findFreestyleTricks: function() {
-    Tricks.find({ _trickType: FREESTYLE });
+    Tricks.find({ trickType: "freestyle" });
   },
   findStreetTricks: function() {
-  	Tricks.find({_trickType: STREET});
+  	Tricks.find({trickType: "street" });
   }
 });
 

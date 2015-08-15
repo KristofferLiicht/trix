@@ -1,7 +1,6 @@
-Meteor.publish('FreestyleTrickData', function() {
-  return FreestyleTricks.find({trickName: {$exists: true}});
+Meteor.publish('StreetTricks', function() {
+  console.log("publishing...")
+  const publish = Tricks.find();
+  return publish;
 });
 
-Meteor.publish('StreetTrickData', function() {
-  return StreetTricks.find({trickName: {$exists: true}});
-});

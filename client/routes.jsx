@@ -5,12 +5,17 @@ const {
 } = ReactRouter;
 
 const routes = (
-  <Route name="root" handler={App} path="/">
-    <Route name="trick" path="/:trickName" handler={TrickPage}/>
-    <DefaultRoute handler={AppLoading} />
+  <Route name="root" path="/" handler={App}>
+      <Route name="tricks" path="/tricks/:trickName" handler={TrickPage}>
+        <Route name="tutorial" path="tutorial" handler={TrickTutorial} />
+        <Route name="faq" path="faq" handler={TrickFaq} />
+        <DefaultRoute handler={Trick} />
+      </Route>
+    <DefaultRoute handler={LandingPage} />
     <NotFoundRoute handler={AppNotFound} />
   </Route>
 )
+
 
 const router = ReactRouter.create({
   routes: routes,

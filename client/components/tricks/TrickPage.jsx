@@ -1,33 +1,53 @@
 const {
+  Link,
   Navigation,
-  State
+  State,
+  RouteHandler
 } = ReactRouter;
 
+
 TrickPage = React.createClass({
-  mixins: [ReactMeteorData, Navigation, State],
-
-  getMeteorData() {
-    // Get list ID from ReactRouter
-    const trickName = this.getParams().trickName;
-
-    // Subscribe to the tasks we need to render this component
-    const tricksSubHandle = Meteor.subscribe("tricks", trickName);
-
-    return {
-      trick: Tricks.findOne({ trickName: trickName }).fetch(),
-      tricksLoading: ! tricksSubHandle.ready()
-    };
+  mixins: [Navigation, State],
+    propTypes: {
+    tricks: React.PropTypes.arrayOf(React.PropTypes.object)
   },
 
-  render() {
-    const trick = this.data.trick;
+    getInitialState: function() {
+      return {};
+  },
 
-    if (! list) {
-      return <AppNotFound />;
-    }
+  getTrickByName(trickName) {
+    return Tricks.findOne(trickName: trickName);
+  },
+
+
+  render() {
+    const trick = getTrickByName(this.getParams())
+    console.log(trick)
 
     return (
-        <Trick trick={trick}/>
+      <div id="padTrick" className="ui grid">
+          <div className="row">
+            <div className="ui ten wide column">
+              <h1> {trick.trickName} </h1>
+            </div>
+            <div className="ui six wide column">
+              <h2>Share now!</h2>
+            </div>
+          </div>
+
+          <RouteHandler
+            trick={trick} />
+
+      </div>
     );
   }
 });
+
+      
+/**
+    if (! trick) {
+      return <AppLoading />;
+    }
+ */
+

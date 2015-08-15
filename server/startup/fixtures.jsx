@@ -4,7 +4,7 @@ Meteor.startup(function () {
     console.log('Seeding trick fixtures...');
 
     Tricks.insert({
-      trickType: 'street football',
+      trickType: 'street',
       trickSubType: 'groundmoves',
       trickName: 'Jeand360',
       trickDescription: 'Jeand Doest awesome tasmanian killer move',
