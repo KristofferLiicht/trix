@@ -6,11 +6,7 @@ const {
 
 const routes = (
   <Route name="root" path="/" handler={App}>
-      <Route name="tricks" path="/tricks/:trickName" handler={TrickPage}>
-        <Route name="tutorial" path="tutorial" handler={TrickTutorial} />
-        <Route name="faq" path="faq" handler={TrickFaq} />
-        <DefaultRoute handler={Trick} />
-      </Route>
+    <Route name="tricks" path="/tricks/:trickName" handler={TrickPage}/>
     <DefaultRoute handler={LandingPage} />
     <NotFoundRoute handler={AppNotFound} />
   </Route>

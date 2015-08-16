@@ -17,8 +17,8 @@ App = React.createClass({
     const trickSubHandle = Meteor.subscribe("StreetTricks");
 
     return {
-      tricks: getTricks(),
-      tricksLoading: ! trickSubHandle.ready()
+      tricksLoading: ! trickSubHandle.ready(),
+      tricks: this.getTricks(),
     };
   },
 
@@ -34,7 +34,8 @@ App = React.createClass({
 
   render: function () {
     
-  	if(tricksLoading){
+    const tricks = this.data.tricks
+  	if(this.data.tricksLoading){
   		return (<div>Loading...</div>);
   	}
 
@@ -45,7 +46,8 @@ App = React.createClass({
 		    <div className="row">
 		      
 		      <div id="padLeft" className="ui thirteen wide column">
-		            <RouteHandler />
+		            <RouteHandler
+		            	tricks={tricks} />
 		      </div>
 
 
