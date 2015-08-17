@@ -6,7 +6,7 @@ Meteor.startup(function () {
     Tricks.insert({
       trickType: 'street',
       trickSubType: 'groundmoves',
-      trickName: 'Jeand360',
+      trickName: 'jeand360',
       trickDescription: 'Jeand Doest awesome tasmanian killer move',
       trickVideoId: 'n8fLGTO07hE',
       trickTutorialId: 'jdzOjhBXZTU',

@@ -9,15 +9,12 @@ App = React.createClass({
 	mixins: [ReactMeteorData, Navigation, State],
   
     getMeteorData() {
-    // Get list ID from ReactRouter
-    const _trickName = this.getParams().trickName;
-
 
     // Subscribe to the tasks we need to render this component
     const trickSubHandle = Meteor.subscribe("StreetTricks");
 
     return {
-      tricksLoading: ! trickSubHandle.ready(),
+      subsReady: trickSubHandle.ready(),
       tricks: this.getTricks(),
     };
   },
@@ -30,14 +27,17 @@ App = React.createClass({
   getTricks() {
   	return Tricks.find().fetch();
   },
-
+  
 
   render: function () {
     
-    const tricks = this.data.tricks
-  	if(this.data.tricksLoading){
+  	if(!this.data.subsReady){
   		return (<div>Loading...</div>);
   	}
+  	console.log(this.data.subsReady)
+
+  	const tricks = this.data.tricks;
+  	console.log(tricks)
 
     return (
    	  <div id="container">	
@@ -46,8 +46,12 @@ App = React.createClass({
 		    <div className="row">
 		      
 		      <div id="padLeft" className="ui thirteen wide column">
-		            <RouteHandler
-		            	tricks={tricks} />
+
+
+		       { this.data.subsReady ?
+            	<RouteHandler/> :
+            	<AppLoading /> }
+		            
 		      </div>
 
 
