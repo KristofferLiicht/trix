@@ -14,15 +14,12 @@ TrickPage = React.createClass({
     const data = {};
     // Get list ID from ReactRouter
     const trickName = this.getParams().trickName;
-    console.log(trickName)
 
     // Subscribe to the tasks we need to render this component
     const subHandle = Meteor.subscribe("StreetTricks");
     data.subsReady = subHandle.ready();
     if(data.subsReady){
-        data.trick = Tricks.findOne({ trickName: trickName })
-        console.log("the data that goes out")
-        console.log(data.trick)
+        data.trick = Tricks.findOne({ trickName: trickName });
     }
     return data;
   },
@@ -38,8 +35,6 @@ TrickPage = React.createClass({
       this.setState({
       viewState: viewState
     });
-      console.log(this.state.viewState)
-      
   },
 
 
@@ -59,7 +54,7 @@ TrickPage = React.createClass({
 
 
   render() {
-
+    console.log('TrickPage#render');
     if(!this.data.subsReady){
       return (<div>Loading...</div>);
     }
