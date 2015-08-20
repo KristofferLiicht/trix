@@ -31,6 +31,7 @@ insecure@1.0.3
 jquery@1.11.3_2
 json@1.0.3
 jsx@0.1.2
+kadira:flow-router@2.3.0
 lai:collection-extensions@0.1.4
 launch-screen@1.0.2
 livedata@1.0.13

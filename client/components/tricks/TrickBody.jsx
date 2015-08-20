@@ -68,9 +68,13 @@ TrickBody = React.createClass({
     const youtube = "http://www.youtube.com/embed/" + videoID + "?autoplay=1&origin=http://example.com"
    
    return(
-            <iframe id="ytplayer" type="text/html" width="640" height="390"
+          <div id="contentArea">
+            <iframe id="ytplayer" className="ytplayer" type="text/html"
+              allowfullscreen
               src={youtube}
               frameBorder="0"/>
+          </div>
+
     );    
   },
 
@@ -99,7 +103,7 @@ TrickBody = React.createClass({
     }, this);
 
     return(
-        <div className="ui compact vertical labeled icon menu">
+        <div id="vidMenu" className="ui compact vertical labeled icon menu">
           {menuItems}
         </div>
       );

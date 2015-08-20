@@ -43,7 +43,7 @@ App = React.createClass({
    	  <div id="container">	
       	<TopBar/>	
       	<div className="ui grid">
-		    <div className="row">
+		    <div id="grid" className="row">
 		      
 		      <div id="padLeft" className="ui thirteen wide column">
 
