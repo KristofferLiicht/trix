@@ -70,7 +70,7 @@ TrickBody = React.createClass({
    return(
           <div id="contentArea">
             <iframe id="ytplayer" className="ytplayer" type="text/html"
-              allowfullscreen
+              allowFullScreen
               src={youtube}
               frameBorder="0"/>
           </div>

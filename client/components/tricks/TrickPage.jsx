@@ -46,11 +46,22 @@ TrickPage = React.createClass({
                 <h1> {this.data.trick.trickName} </h1>
               </div>
               <div className="ui six wide column">
-                <h2>Share now!</h2>
+                <div className="fb-like" 
+                    data-href="http://www.your-domain.com/your-page.html" 
+                    data-layout="button" 
+                    data-action="like" 
+                    data-show-faces="true">
+                </div>
+                <div className="fb-share-button" 
+                     data-href="https://developers.facebook.com/docs/plugins/" 
+                     data-layout="button">
+                </div>              
               </div>
           </div>
     );
   },
+
+
 
 
   render() {
