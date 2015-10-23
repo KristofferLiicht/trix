@@ -69,11 +69,12 @@ TrickBody = React.createClass({
    
    return(
           <div id="contentArea">
-            <iframe id="ytplayer" className="ytplayer" type="text/html"
-              allowFullScreen
-              src={youtube}
-              frameBorder="0"/>
+                <iframe id="ytplayer" className="ytplayer" type="text/html"
+                  allowFullScreen
+                  src={youtube}
+                  frameBorder="0"/>
           </div>
+
 
     );    
   },
@@ -113,28 +114,24 @@ TrickBody = React.createClass({
 
   render() {
     console.log('TrickBody#render');
-    if(!this.props.subsReady){
-      return (<div>Loading...</div>);
-    }
     const trick = this.props.trick.trickName;
     const viewState = this.props.viewState;
+    let credit = "This is a test";
 
     let renderTrick = this.renderTrickVid(viewState);
     if (viewState==="faq"){
      renderTrick = this.renderTrickFaq();
+     credit = ""
     }
     console.log(viewState, renderTrick);
     return (
-
-          <div className="row">
-            <div className="ui fourteen wide column">
+            <div className="ui thirteen wide column">
               {renderTrick}
+              <span>{credit}</span>
             </div>
-            <div id="vidMenu" className="ui two wide column">
-              {this.renderVidMenu()}
-            </div>
-          </div>
-            
+
+
+      
     );
   }
 });

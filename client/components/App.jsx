@@ -32,7 +32,7 @@ App = React.createClass({
   render: function () {
     
   	if(!this.data.subsReady){
-  		return (<div>Loading...</div>);
+  		return (<div>Loadinsg...</div>);
   	}
   	console.log(this.data.subsReady)
 

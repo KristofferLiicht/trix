@@ -63,7 +63,7 @@ TrickPage = React.createClass({
 
     return(
           <div className="row">
-              <div className="ui ten wide column">
+              <div className="ui five wide column">
                 <h1> {this.data.trick.trickName} </h1>
               </div>
               <div className="ui six wide column">
@@ -98,11 +98,18 @@ TrickPage = React.createClass({
     return (
       <div id="padTrick" className="ui grid">
             {this.renderTrickPageHeader()}
+          <div className="row">
             <TrickBody 
               viewState={viewState} 
               handleViewState={this.handleViewState}
               trick={trick}
               subsReady={subsReady} />
+            <TrickMenu
+              viewState={viewState}
+              handleViewState={this.handleViewState}
+              trick={trick}
+              subsReady={subsReady}  />
+          </div>
       </div>          
     );
   }
